@@ -1,0 +1,7 @@
+FROM node:16.16.0 as development
+
+WORKDIR /usr/local/crudapp/client
+
+COPY package*.json ./
+
+RUN npm install

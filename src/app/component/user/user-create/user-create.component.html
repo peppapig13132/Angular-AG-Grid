@@ -1,0 +1,39 @@
+<h4 class="ms-2">Add User</h4>
+
+<form [formGroup]="userForm" (ngSubmit)="createUser()">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="user-name" formControlName="name" value="userForm.name">
+        <label for="user-name">Name</label>
+        <div class="ms-2 small text-danger" *ngIf="userForm.get('name')!.hasError('required')">Name is required.</div>
+        <div class="ms-2 small text-danger" *ngIf="userForm.get('name')!.hasError('alphabetic')">Name must be alphabetic.</div>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="user-email" formControlName="email" value="userForm.email">
+        <label for="user-email">Email</label>
+        <div class="ms-2 small text-danger" *ngIf="userForm.get('email')!.hasError('required')">Email is required.</div>
+        <div class="ms-2 small text-danger" *ngIf="userForm.get('email')!.hasError('invalidEmail')">Input valid email.</div>
+    </div>
+
+    <div class="form-floating mb-3">
+        <select class="form-control" id="product-gender" formControlName="gender" value="productForm.gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <label for="product-gender">Gender</label>
+        <div class="ms-2 small text-danger" *ngIf="userForm.get('gender')!.hasError('required')">Please select gender.</div>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="user-age" formControlName="age" value="userForm.age">
+        <label for="user-age">Age</label>
+        <div class="ms-2 small text-danger" *ngIf="userForm.get('age')!.hasError('required')">Age is required.</div>
+        <div class="ms-2 small text-danger" *ngIf="userForm.get('age')!.hasError('ageRestricted')">Age must be over 18.</div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Add User</button>
+    </div>
+</form>
+
+<p [class]="statusMessageColor + ' mt-3'">{{statusMessage}}</p>

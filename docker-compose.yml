@@ -1,0 +1,14 @@
+version: '3'
+services:
+  angular-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./:/usr/local/crudapp/client
+    working_dir: /usr/local/crudapp/client
+    command: npm start
+    environment:
+      - NODE_ENV=development

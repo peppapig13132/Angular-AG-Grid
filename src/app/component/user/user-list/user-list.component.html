@@ -1,0 +1,30 @@
+<h4 class="ms-2">All Users</h4>
+
+<div class="mt-2 mb-1">
+    <div style="margin-bottom: 5px;">
+        <button class="btn btn-sm btn-outline-info ms-1 me-1" (click)="onBtStartEditing()">
+            Edit User
+        </button>
+        <button class="btn btn-sm btn-outline-warning ms-1 me-1" (click)="removeRow()">
+            Delete User
+        </button>
+        <p class="mt-2 text-small">Please select a user to edit/delete.</p>
+        <p class="text-small text-danger">{{errorMessage}}</p>
+    </div>
+</div>
+
+<div style="height: 500px;">
+    <ag-grid-angular
+        style="width: 100%; height: 100%;"
+        class="ag-theme-alpine"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [rowData]="rowData"
+        [animateRows]="true"
+        [editType]="editType"
+        (cellClicked)="onCellClicked($event)"
+        (cellValueChanged)="onCellValueChanged($event)"
+        (rowValueChanged)="onRowValueChanged($event)"
+        (gridReady)="onGridReady($event)"
+    ></ag-grid-angular>
+</div>
