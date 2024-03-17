@@ -1,3 +1,10 @@
+# Angular | AG-GRID | CRUD
+
+### Configuration
+
+Backend API URL: _./src/environment/environment.ts_
+
+### Run project in Docker
 ```
 docker build -t crudapp-client .
 ```
