@@ -2,7 +2,7 @@
 
 ### Configuration
 
-Backend API URL: _./src/environment/environment.ts_
+Backend API URL: _.\src\environment\environment.ts_
 
 ### Run project in Docker
 ```
